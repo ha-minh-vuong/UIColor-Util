@@ -19,6 +19,31 @@
     return color;
 }
 
++ (UIColor *)colorFromHex:(NSString *)hexString
+{
+    NSString *cleanString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    if([cleanString length] == 3) {
+        cleanString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
+                       [cleanString substringWithRange:NSMakeRange(0, 1)],[cleanString substringWithRange:NSMakeRange(0, 1)],
+                       [cleanString substringWithRange:NSMakeRange(1, 1)],[cleanString substringWithRange:NSMakeRange(1, 1)],
+                       [cleanString substringWithRange:NSMakeRange(2, 1)],[cleanString substringWithRange:NSMakeRange(2, 1)]];
+    }
+    if([cleanString length] == 6) {
+        cleanString = [cleanString stringByAppendingString:@"ff"];
+    }
+    
+    unsigned int baseValue;
+    [[NSScanner scannerWithString:cleanString] scanHexInt:&baseValue];
+    
+    float r = ((baseValue >> 24) & 0xFF)/255.0f;
+    float g = ((baseValue >> 16) & 0xFF)/255.0f;
+    float b = ((baseValue >> 8) & 0xFF)/255.0f;
+    float a = ((baseValue >> 0) & 0xFF)/255.0f;
+    
+    UIColor *color = [UIColor colorWithRed:r green:g blue:b alpha:a];
+    return color;
+}
+
 - (UIColor *)lighterColorByPercent:(float)percent
 {
     float h, s, b, a;

@@ -12,6 +12,8 @@
 
 + (UIColor *)randomColor;
 
++ (UIColor *)colorFromHex:(NSString *)hexString;
+
 - (UIColor *)lighterColorByPercent:(float)percent;
 
 - (UIColor *)darkerColorByPercent:(float)percent;
