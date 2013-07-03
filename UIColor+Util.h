@@ -57,4 +57,32 @@
 ///
 - (UIColor *)darkerColorInAmount:(float)amount;
 
+///
+/// Create and return a dictionary constructed from color components with keys are "red", "green", "blue", "alpha".
+///
+/// @return A dictionary with entries are color components - rgb and alpha.
+///
+- (NSDictionary *)dictionaryComponentsRGB;
+
+///
+/// Create and return a dictionary constructed from color components with keys are "hue", "saturation", "brightness", "alpha".
+///
+/// @return A dictionary with entries are color components - hsb and alpha.
+///
+- (NSDictionary *)dictionaryComponentsHSB;
+
+///
+/// Create and return an array of color components of rgb.
+///
+/// @return An array of color components with red, green, blue, alpha.
+///
+- (NSArray *)arrayComponentsRGB;
+
+///
+/// Create and return an array of color components of hsb.
+///
+/// @return An array of color components with hue, saturation, brightness, alpha.
+///
+- (NSArray *)arrayComponentsHSB;
+
 @end

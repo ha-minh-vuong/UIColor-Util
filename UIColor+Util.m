@@ -76,4 +76,36 @@
     return color;
 }
 
+- (NSDictionary *)dictionaryComponentsRGB
+{
+    float r, g, b, a;
+    if (![self getRed:&r green:&g blue:&b alpha:&a]) return nil;
+    NSDictionary *dict = @{ @"red": @(r), @"green": @(g), @"blue": @(b), @"alpha": @(a) };
+    return dict;
+}
+
+- (NSDictionary *)dictionaryComponentsHSB
+{
+    float h, s, b, a;
+    if (![self getHue:&h saturation:&s brightness:&b alpha:&a]) return nil;
+    NSDictionary *dict = @{ @"hue": @(h), @"saturation": @(s), @"brightness": @(b), @"alpha": @(a) };
+    return dict;
+}
+
+- (NSArray *)arrayComponentsRGB
+{
+    float r, g, b, a;
+    if (![self getRed:&r green:&g blue:&b alpha:&a]) return nil;
+    NSArray *array = @[ @(r), @(g), @(b), @(a) ];
+    return array;
+}
+
+- (NSArray *)arrayComponentsHSB
+{
+    float h, s, b, a;
+    if (![self getHue:&h saturation:&s brightness:&b alpha:&a]) return nil;
+    NSArray *array = @[ @(h), @(s), @(b), @(a) ];
+    return array;
+}
+
 @end
